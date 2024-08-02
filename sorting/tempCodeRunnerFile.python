@@ -1,0 +1,16 @@
+import twint
+
+def search_tweets(keyword):
+    try:
+        c = twint.Config()
+        c.Search = keyword
+        c.Limit = 10
+        c.Store_object = True
+        c.Store_json = True
+        c.Output = "tweets.json"
+        twint.run.Search(c)
+    except Exception as e:
+        print(f"An error occurred: {e}")
+
+if __name__ == "__main__":
+    search_tweets('pizza')
